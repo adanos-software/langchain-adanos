@@ -55,6 +55,9 @@ and performs no automatic retries or pagination.
 - `trending`, sector/country trends and `mentions`: optional `limit`, `offset`.
 - `search`: optional `limit`; stock `trending`: optional `type`.
 - Reddit stock and crypto `mentions`: optional `include_inherited`.
+- News trends, including sectors/countries: optional `source` inside `parameters`
+  to filter by a canonical publisher ID or known alias. This is separate from the
+  top-level `source="news"` selector.
 
 For historical queries, provide both `from_` and `to` as inclusive UTC dates
 (`YYYY-MM-DD`) within the account's retention, or omit both for the API default.
