@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-adanos"
+version = "0.1.0"
+description = "Adanos market sentiment tools for LangChain"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Adanos", email = "contact@adanos.org"}]
+dependencies = ["adanos>=2.7.0,<3", "langchain-core>=1,<2"]
+
+[project.urls]
+Homepage = "https://adanos.org/"
+Documentation = "https://github.com/adanos-software/langchain-adanos#readme"
+Repository = "https://github.com/adanos-software/langchain-adanos"
+Issues = "https://github.com/adanos-software/langchain-adanos/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+    "pytest-asyncio>=1,<2",
+    "langchain-tests==1.1.9",
+    "ruff==0.15.1",
+    "mypy==1.19.1",
+    "build>=1,<2",
+    "twine>=6,<8",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.mypy]
+strict = true
+follow_imports = "silent"
